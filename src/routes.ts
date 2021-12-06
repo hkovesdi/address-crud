@@ -13,7 +13,10 @@ import { createAddressValidator, deleteAddressValidator, getAddressValidator, up
 
 const router = express.Router();
 
-router.get('/address', asyncHandler(getAddressesHandler));
+router.get(
+  '/address', 
+  asyncHandler(getAddressesHandler)
+);
 router.get(
   '/address/:id',
   getAddressValidator(),
