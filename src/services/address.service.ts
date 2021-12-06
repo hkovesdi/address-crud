@@ -3,6 +3,7 @@ import addressModel, { AddressStatus } from "../models/address.model";
 
 export async function getAddresses() {
   const addresses = await addressModel.find();
+  
   return addresses;
 }
 
@@ -10,11 +11,7 @@ export async function getLastUpdatedAddressDate() {
   const address = await addressModel.findOne().sort({updatedAt: 'desc'});
   
   // If the database is empty Thu, 01 Jan 1970 00:00:00 GMT will be returned
-  let updatedAt = new Date(0).toUTCString();
-  
-  if(address) {
-    updatedAt = new Date(address.updatedAt).toUTCString();
-  }
+  const updatedAt = new Date(address ? address.updatedAt : 0).toUTCString();
 
   return updatedAt;
 }
@@ -56,6 +53,6 @@ export async function deleteAddress(id: string)
     await addressModel.findByIdAndDelete(address._id);
   }
   catch {
-    throw new ResponseError("The address can only be modified if status is either 'null' or 'not at home'", 409);
+    throw new ResponseError("Resource conflict occured please try again later.", 409);
   }
 }
