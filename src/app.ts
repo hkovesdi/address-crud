@@ -25,8 +25,8 @@ async function main() {
     console.error(err);
   }
 
-  app.listen(process.env.PORT, () => {
-    console.log(`App is running on port ${process.env.port}`);
+  app.listen(process.env.PORT ?? 3000, () => {
+    console.log(`App is running on port ${process.env.PORT}`);
   });
 }
 
