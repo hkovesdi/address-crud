@@ -7,7 +7,7 @@ export function addressIdValidator() {
     // The ID has to be a valid mongoose ObjectId
     param('id')
       .custom((input: string) => mongoose.Types.ObjectId.isValid(input))
-      .withMessage('The id param should be valid.'),
+      .withMessage('The id param should be a valid ObjectId.'),
   ];
 }
 
@@ -73,5 +73,5 @@ export function updateAddressValidator() {
 }
 
 export function deleteAddressValidator() {
-  return addressIdValidator
+  return addressIdValidator();
 }
