@@ -1,0 +1,34 @@
+{
+  "name": "address-crud",
+  "version": "1.0.0",
+  "description": "A simple CRUD application for addresses using Node (TS, express) and mongo.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev src/app.ts",
+    "build": "tsc src/app.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hkovesdi/address-crud.git"
+  },
+  "author": "Hunor Kövesdi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hkovesdi/address-crud/issues"
+  },
+  "homepage": "https://github.com/hkovesdi/address-crud#readme",
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.11.11",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.5.2"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-async-handler": "^1.2.0",
+    "express-validator": "^6.13.0",
+    "mongoose": "^6.0.14"
+  }
+}
