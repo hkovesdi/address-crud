@@ -45,8 +45,7 @@ export async function updateAddress(id: string, data: any) {
   return await addressModel.findByIdAndUpdate(address._id, data, {returnDocument: 'after'});
 }
 
-export async function deleteAddress(id: string) 
-{
+export async function deleteAddress(id: string) {
   const address = await getAddressById(id);
 
   try {
