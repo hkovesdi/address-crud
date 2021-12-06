@@ -11,7 +11,7 @@ import {
 export async function getAddressesHandler(req: Request, res: Response) {
   const addresses = await getAddresses();
 
-  let updatedAt = await getLastUpdatedAddressDate();
+  const updatedAt = await getLastUpdatedAddressDate();
 
   res.append('Last-Modified', updatedAt)
     .status(200)
@@ -42,7 +42,7 @@ export async function createAddressHandler(req: Request, res: Response) {
 }
 
 export async function updateAddressHandler(req: Request, res: Response) {
-  let address = await updateAddress(req.params.id, {
+  const address = await updateAddress(req.params.id, {
     'status': req.body.status,
     'email': req.body.email,
     'name': req.body.name
